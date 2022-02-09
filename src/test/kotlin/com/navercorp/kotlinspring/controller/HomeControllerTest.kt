@@ -17,6 +17,7 @@ internal class HomeControllerTest(@Autowired val restTemplate: TestRestTemplate)
     @Test
     fun homeTest() {
         val result = restTemplate.getForEntity<String>("/");
+        assertThat(result.statusCodeValue).isEqualTo(200);
         assertThat(result.statusCode).isEqualTo(HttpStatus.OK);
         assertThat(result.body).isEqualTo("Hello World");
     }
