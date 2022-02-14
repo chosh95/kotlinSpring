@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.util.regex.Pattern.compile
 
 plugins {
     id("org.springframework.boot") version "2.6.3"
@@ -27,6 +26,8 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 //    testImplementation("org.springframework.security:spring-security-test")
+    implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3")
+    implementation("org.bouncycastle:bcprov-jdk15on:1.64")
 }
 
 tasks.withType<KotlinCompile> {
