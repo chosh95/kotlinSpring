@@ -7,36 +7,52 @@ plugins {
     kotlin("plugin.spring") version "1.6.10"
 }
 
-group = "com.navercorp"
-version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+allprojects {
+    group = "com.navercorp"
+    version = "0.0.1-SNAPSHOT"
 
-repositories {
-    mavenCentral()
-}
+    tasks.withType<JavaCompile> {
+        sourceCompatibility = "1.8"
+        targetCompatibility = "1.8"
+    }
 
-dependencies {
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "1.8"
+        }
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    apply(plugin = "java")
+    apply(plugin = "idea")
+    apply(plugin = "eclipse")
+    apply(plugin = "kotlin")
+    apply(plugin = "kotlin-spring")
+    apply(plugin = "org.springframework.boot")
+    apply(plugin = "io.spring.dependency-management")
+
+
+    dependencies {
 //    implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2")
-    implementation("mysql:mysql-connector-java")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+        implementation("org.springframework.boot:spring-boot-starter-web")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+        implementation("org.jetbrains.kotlin:kotlin-reflect")
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2")
+        implementation("mysql:mysql-connector-java")
+        developmentOnly("org.springframework.boot:spring-boot-devtools")
+        testImplementation("org.springframework.boot:spring-boot-starter-test")
 //    testImplementation("org.springframework.security:spring-security-test")
-    implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3")
-    implementation("org.bouncycastle:bcprov-jdk15on:1.64")
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
+        implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3")
+        implementation("org.bouncycastle:bcprov-jdk15on:1.64")
     }
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-}

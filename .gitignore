@@ -24,7 +24,7 @@ buildSrc/build
 /spring-core/kotlin-coroutines/build
 /framework-bom/build
 /integration-tests/build
-/src/asciidoc/build
+/module-api/src/asciidoc/build
 target/
 
 # Eclipse artifacts, including WTP generated manifests
