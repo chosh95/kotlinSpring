@@ -1,3 +1,3 @@
 rootProject.name = "kotlinSpring"
-include("module-api")
-include("module-common")
+include("kotlin-api")
+include("kotlin-common")
