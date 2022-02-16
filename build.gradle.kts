@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.spring") version "1.6.10"
 }
 
-allprojects {
+subprojects {
     group = "com.navercorp"
     version = "0.0.1-SNAPSHOT"
 
@@ -54,4 +54,3 @@ allprojects {
         implementation("org.bouncycastle:bcprov-jdk15on:1.64")
     }
 }
-

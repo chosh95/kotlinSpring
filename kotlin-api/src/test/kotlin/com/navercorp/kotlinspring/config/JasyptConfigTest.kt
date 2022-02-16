@@ -1,6 +1,6 @@
 package com.navercorp.kotlinspring.config
 
-import com.navercorp.kotlinspring.KotlinSpringApplication
+import com.navercorp.kotlin.api.KotlinSpringApplication
 import org.assertj.core.api.Assertions.assertThat
 import org.jasypt.encryption.StringEncryptor
 import org.junit.jupiter.api.Test
