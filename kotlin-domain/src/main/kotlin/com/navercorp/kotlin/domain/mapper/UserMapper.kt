@@ -1,5 +1,6 @@
 package com.navercorp.kotlin.domain.mapper
 
+import com.navercorp.kotlin.domain.dto.UserRequest
 import com.navercorp.kotlin.domain.model.User
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
@@ -17,20 +18,30 @@ interface UserMapper {
         """
     )
     fun selectUser(
-        @Param("id") id: String
+        @Param("id") id: Int
     ): User
 
     @Insert(
         """
-        Insert into User(name, email, password, age, gender)
-        values(#{name}, #{email}, #{password}, #{age}, #{gender}
+        Insert into User
+        (
+            name,
+            email,
+            password, 
+            age, 
+            gender
+        )
+        values
+        (
+            #{name, jdbcType=VARCHAR}, 
+            #{email, jdbcType=VARCHAR}, 
+            #{password, jdbcType=VARCHAR},
+            #{age, jdbcType=NUMERIC}, 
+            #{gender, jdbcType=VARCHAR}
+        )
         """
     )
     fun insertUser(
-        @Param("name") name: String,
-        @Param("email") email: String,
-        @Param("password") password: String,
-        @Param("age") age: Int,
-        @Param("gender") gender: String
-    );
+        param: UserRequest
+    )
 }

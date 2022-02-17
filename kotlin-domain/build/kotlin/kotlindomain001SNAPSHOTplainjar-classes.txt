@@ -1,1 +1,0 @@
-/Users/user/git/kotlinSpring/kotlin-domain/build/classes/kotlin/main/com/navercorp/kotlin/domain/mapper/UserMapper.class:/Users/user/git/kotlinSpring/kotlin-domain/build/classes/kotlin/main/com/navercorp/kotlin/domain/model/User.class

@@ -41,6 +41,7 @@ subprojects {
 
     dependencies {
 //    implementation("org.springframework.boot:spring-boot-starter-security")
+//    testImplementation("org.springframework.security:spring-security-test")
         implementation("org.springframework.boot:spring-boot-starter-web")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -49,7 +50,6 @@ subprojects {
         implementation("mysql:mysql-connector-java")
         developmentOnly("org.springframework.boot:spring-boot-devtools")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
-//    testImplementation("org.springframework.security:spring-security-test")
         implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3")
         implementation("org.bouncycastle:bcprov-jdk15on:1.64")
     }
