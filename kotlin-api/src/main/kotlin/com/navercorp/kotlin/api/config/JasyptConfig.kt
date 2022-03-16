@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration
 class JasyptConfig {
 
     @Value("\${jasypt.encryptor.password}")
-    lateinit var password: String;
+    lateinit var password: String
 
     @Bean("jasyptEncryptor")
     fun jasyptEncryptor() = PooledPBEStringEncryptor().also {

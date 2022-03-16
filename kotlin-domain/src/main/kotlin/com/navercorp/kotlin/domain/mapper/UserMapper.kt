@@ -14,7 +14,7 @@ interface UserMapper {
         """
         Select * 
         FROM USER
-        WHERE USER.id = #{id};
+        WHERE USER.id = #{id}
         """
     )
     fun selectUser(
