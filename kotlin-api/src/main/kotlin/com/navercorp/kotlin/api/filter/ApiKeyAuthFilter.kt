@@ -1,27 +1,21 @@
 package com.navercorp.kotlin.api.filter
 
-import com.navercorp.kotlin.api.config.ApiKeyAuthManager
+import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter
 import javax.servlet.http.HttpServletRequest
 
-class ApiKeyAuthFilter : AbstractPreAuthenticatedProcessingFilter {
+const val API_KEY_HEADER_NAME = "Authentication";
 
-    constructor() {
-        this.setAuthenticationManager(ApiKeyAuthManager())
-    }
+class ApiKeyAuthFilter : AbstractPreAuthenticatedProcessingFilter() {
 
-    var principalRequestHeader: String = "Authentication"
-
-
-    @Override
     override fun getPreAuthenticatedPrincipal(request: HttpServletRequest?): Any {
         if (request != null) {
-            return request.getHeader(principalRequestHeader)
+            return request.getHeader(API_KEY_HEADER_NAME)
         }
-        return ""
+        throw BadCredentialsException("Request is null")
     }
 
-    @Override
+    // credential(비밀번호)은 api key filter 에서는 사용하지 않는다.
     override fun getPreAuthenticatedCredentials(request: HttpServletRequest?): Any {
         return "N/A"
     }
