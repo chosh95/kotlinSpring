@@ -28,7 +28,7 @@ class HomeSecurityConfig : WebSecurityConfigurerAdapter() {
         auth.inMemoryAuthentication()
             .withUser("admin")
             .password(passwordEncoder().encode("password"))
-            .authorities("ADMIN")
+            .authorities("ROLE_ADMIN")
     }
 
     @Bean
