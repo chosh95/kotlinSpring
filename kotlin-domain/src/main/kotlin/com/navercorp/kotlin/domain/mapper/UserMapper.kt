@@ -13,8 +13,8 @@ interface UserMapper {
     @Select(
         """
         Select * 
-        FROM USER
-        WHERE USER.id = #{id}
+        FROM `USER`
+        WHERE `USER`.id = #{id}
         """
     )
     fun selectUser(
@@ -23,7 +23,7 @@ interface UserMapper {
 
     @Insert(
         """
-        Insert into User
+        Insert into `User`
         (
             name,
             email,

@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.spring") version "1.6.10"
 }
 
-subprojects {
+allprojects {
     group = "com.navercorp"
     version = "0.0.1-SNAPSHOT"
 
@@ -52,5 +52,6 @@ subprojects {
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         implementation("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3")
         implementation("org.bouncycastle:bcprov-jdk15on:1.64")
+        implementation("com.h2database:h2")
     }
 }
