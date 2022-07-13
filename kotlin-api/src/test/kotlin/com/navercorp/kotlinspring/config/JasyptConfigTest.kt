@@ -1,6 +1,6 @@
 package com.navercorp.kotlinspring.config
 
-import com.navercorp.kotlin.api.KotlinSpringApplication
+import com.navercorp.kotlin.api.KotlinApiApplication
 import org.assertj.core.api.Assertions.assertThat
 import org.jasypt.encryption.StringEncryptor
 import org.junit.jupiter.api.Test
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
 @ExtendWith(SpringExtension::class)
-@SpringBootTest(classes = [KotlinSpringApplication::class])
+@SpringBootTest(classes = [KotlinApiApplication::class])
 @PropertySource(value = ["application.properties"])
 class JasyptConfigTest {
 
